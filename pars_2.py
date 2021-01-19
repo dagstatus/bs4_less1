@@ -18,6 +18,9 @@ soup = BeautifulSoup(page.text, "html.parser")
 news = []
 news_clear_head = []
 news_clear_text = []
+news_url=[]
+news_url_clear=[]
+
 
 # Находим все элементы с блоками новостей и загоняем их в список (черновой)
 news = soup.findAll('div', class_="mg-grid__col")
@@ -27,7 +30,8 @@ for i in range(len(news)):
     if news[i].find('h2', class_='mg-card__title') is not None:
         news_clear_head.append(news[i].find('h2', class_='mg-card__title').text)
         news_clear_text.append(news[i].find('div', class_='mg-card__annotation').text)
+        news_url.append(news[i].find('a', class_='mg-card__link', href=True)['href'])
 
 # Ну и печатаем i+1 для удобства чтения стартуем с 1 вместо 0
 for i in range(len(news_clear_head)):
-    print(i + 1, ' - ', news_clear_head[i], '\n', news_clear_text[i])
+    print(i + 1, ' - ', news_clear_head[i], '\n', news_clear_text[i], '\n', news_url[i])
