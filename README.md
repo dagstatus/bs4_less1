@@ -2,6 +2,15 @@
 
 `https://yandex.ru/news`
 
+
+Для работы необходимо установить библиотеки BeautifulSoup4 и Requests 
+
+`pip install beautifulsoup4`
+
+
+`pip install requests`
+
+
 Если необходимо изменить регион новостей просто замените ссылку в переменной URL
 Например:
 
