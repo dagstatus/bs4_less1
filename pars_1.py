@@ -4,7 +4,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-url='https://yandex.ru/news/region/makhachkala'
+url='https://yandex.ru/news'
 
 page=requests.get(url)
 
