@@ -1,5 +1,5 @@
 #Пробуем спарсить новости с яндекса
-# https://makhachkala.hh.ru/
+# https://yandex.ru/news
 
 from bs4 import BeautifulSoup
 import requests
