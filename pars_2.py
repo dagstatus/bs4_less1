@@ -3,7 +3,10 @@
 
 from bs4 import BeautifulSoup
 import requests
+import proxy
+import time
 
+proxies_all=proxy.get_free_proxies()
 url = 'https://yandex.ru/news/region/makhachkala'
 
 page = requests.get(url)
@@ -36,6 +39,9 @@ for i in range(len(news)):
         #
         # Создаем еще одну переменную page_tmp для перехода на страницу новости
         page_tmp = requests.get(news[i].find('a', class_='mg-card__link', href=True)['href'])
+        for x in range(5):
+            print(x+1)
+            time.sleep(1)
         # Передаем в новую переменную типа БС4 текст страницы который мы получили
         soup_tmp = BeautifulSoup(page_tmp.text, "html.parser")
         news_url_yapages = soup_tmp.findAll('div', class_='news-story__source')
@@ -51,3 +57,4 @@ for i in range(len(news)):
 
 for i in range(len(news_clear_head)):
     print(i + 1, ' - ', news_clear_head[i], '\n', news_clear_text[i], '\n', news_url_clear[i])
+
